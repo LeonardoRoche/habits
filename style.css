@@ -2,28 +2,37 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'inter';
 }
 
 body {
-  background-color: #09090A;
+  background-color: #09090a;
   color: white;
-
   height: 100vh;
-
-  transition: background 0.2s linear, color 0.2s linear;
 }
 
 header {
+  width: 100%;
+  padding: 48px;
+  position: fixed;
+}
+
+.wrapperHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
-  padding: 48px;
-
-  position: fixed;
   width: 100%;
-  background-color: #09090A;
-  
+  background-color: #09090a;
+}
+
+.wrapperHeaderTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapperHeaderTitle .title {
+  margin-top: 2px;
+  font-size: 48px;
 }
 
 button {
@@ -35,12 +44,16 @@ button {
 
   display: flex;
   align-items: center;
-  gap: 12px ;
+  gap: 12px;
 
-  font-family: 'inter';
   font-weight: 600;
   font-size: 16px;
   line-height: 125%;
+}
+
+button:hover {
+  cursor: pointer;
+  transition: ease-in-out 0.2s linear;
 }
 
 #form-habits {
@@ -63,7 +76,7 @@ button {
   height: 64px;
 
   font-size: 32px;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,38 +96,131 @@ button {
 
 .day div {
   margin-bottom: 8px;
-
-  font-family: 'Roboto Mono';
   font-size: 20px;
   line-height: 125%;
 
-  color: #A1A1AA;
+  color: #a1a1aa;
 
   text-align: center;
 }
+
 input {
   appearance: none;
   -webkit-appearance: none;
 
-  height:64px;
-  width:64px;
+  height: 64px;
+  width: 64px;
 
-  border: 2px solid #27272A;
-  border-radius:8px ;
+  border: 2px solid #27272a;
+  border-radius: 8px;
 
-  background-color: #18181B;
+  background-color: #18181b;
 
   transition: 0.2s;
 }
 
 /* Pseudoselector (:) */
 input:checked {
-  background-color: #8B5CF6;
-  border: 2px solid #A78BFA
+  background-color: #8b5cf6;
+  border: 2px solid #a78bfa;
 }
 
 @media (max-width: 570px) {
   button div {
     display: none;
   }
+}
+
+.light {
+  background-color: #fefefe;
+  color: black;
+
+  transition: background 0.2s linear, color 0.2s linear;
+}
+
+body.light .registerDay {
+  color: black;
+}
+
+.container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+label {
+  background-color: black;
+  border-radius: 40%;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#btn {
+  visibility: hidden;
+}
+
+.wrapperswith {
+  text-align: end;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
